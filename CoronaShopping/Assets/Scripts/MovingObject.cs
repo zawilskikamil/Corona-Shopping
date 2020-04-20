@@ -17,30 +17,27 @@ public abstract class MovingObject : MonoBehaviour
         inverseMoveTime = 1f / moveTime;
     }
 
-    public void Move(float xDir, float yDir)
+    public bool Move(float xDir, float yDir)
     {
-        print("move");
         if (isMoving)
         {
-            return;
+            return false;
         }
-
-
 
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
 
         RaycastHit2D hit = Physics2D.Linecast(start, end, blockingLayer);
-        print(hit);
-        print(hit.transform);
+
 
         if (hit.transform != null)
         {
-            return;
+            return false;
         }
 
         isMoving = true;
         StartCoroutine(SmoothMovement(end));
+        return true;
     }
 
     protected IEnumerator SmoothMovement(Vector3 end)

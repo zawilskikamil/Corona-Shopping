@@ -13,26 +13,49 @@ public class PlayerMoving : MovingObject
 
     void Update()
     {
+        float x = 0;
+        float y = 0;
+        string trigger = "";
         if (InputManager.IsUp())
         {
-            base.Move(0, 1);
-            animator.SetTrigger("PlayerGoUp");
+            y = 1;
+            trigger = "PlayerGoUp";
         }
-        else if (InputManager.IsDown())
+        if (InputManager.IsDown())
         {
-            base.Move(0, -1);
-            animator.SetTrigger("PlayerGoDown");
+            y = -1;
+            trigger = "PlayerGoDown";
         }
-        else if (InputManager.IsLeft())
+        if (InputManager.IsLeft())
         {
-            base.Move(-1, 0);
-            animator.SetTrigger("PlayerGoLeft");
+            x = -1;
+            trigger = "PlayerGoLeft";
         }
-        else if (InputManager.IsRight())
+        if (InputManager.IsRight())
         {
-            base.Move(1, 0);
-            animator.SetTrigger("PlayerGoRight");
+            x = 1;
+            trigger = "PlayerGoRight";
+        }
+        if (x == 0 && y == 0)
+        {
+            return;
+        }
+        bool moving = base.Move(x, y);
+        if (moving)
+        {
+            animator.SetTrigger(trigger);
+        }
+    }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print(other);
+        print(other.tag);
+        print(other.gameObject);
+        if (other.tag == "ShopItem")
+        {
+            //Disable the food object the player collided with.
+            other.gameObject.SetActive(false);
         }
     }
 }

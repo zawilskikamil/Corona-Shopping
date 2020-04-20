@@ -5,22 +5,22 @@ public class InputManager
 {
     public static bool IsUp()
     {
-        return Input.GetKeyDown(KeyCode.W);
+        return Input.GetKey(KeyCode.W);
     }
 
     internal static bool IsDown()
     {
-        return Input.GetKeyDown(KeyCode.S);
+        return Input.GetKey(KeyCode.S);
     }
 
     public static bool IsRight()
     {
-        return Input.GetKeyDown(KeyCode.D);
+        return Input.GetKey(KeyCode.D);
     }
 
     internal static bool IsLeft()
     {
-        return Input.GetKeyDown(KeyCode.A);
+        return Input.GetKey(KeyCode.A);
     }
 
 
