@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ShopItem
+  - Corona
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Wall
   - PlayerLayer
   - Items
-  - 
+  - Corona
   - 
   - 
   - 
@@ -42,6 +43,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: New Layer
+    uniqueID: 3883972495
+    locked: 0
+  - name: Floor
+    uniqueID: 2097027077
+    locked: 0
+  - name: Wall
+    uniqueID: 65062775
+    locked: 0
   - name: Player
     uniqueID: 2402752489
+    locked: 0
+  - name: Items
+    uniqueID: 617677771
+    locked: 0
+  - name: Corona
+    uniqueID: 2504759367
     locked: 0

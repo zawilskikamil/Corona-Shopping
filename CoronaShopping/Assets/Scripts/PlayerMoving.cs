@@ -49,13 +49,14 @@ public class PlayerMoving : MovingObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other);
-        print(other.tag);
-        print(other.gameObject);
-        if (other.tag == "ShopItem")
+        if (other.CompareTag("ShopItem"))
         {
-            //Disable the food object the player collided with.
+            GameManager.instance.playerFoodPoints++;
             other.gameObject.SetActive(false);
+        } else if (other.CompareTag("Corona"))
+        {
+            GameManager.instance.GameOver();
+            print("corona");
         }
     }
 }
