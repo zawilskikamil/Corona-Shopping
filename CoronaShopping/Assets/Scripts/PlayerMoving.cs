@@ -53,9 +53,15 @@ public class PlayerMoving : MovingObject
         {
             GameManager.instance.playerFoodPoints++;
             other.gameObject.SetActive(false);
-        } else if (other.CompareTag("Corona"))
+        }
+        else if (other.CompareTag("Corona"))
         {
             GameManager.instance.GameOver();
+            print("corona");
+        }
+        else if (other.CompareTag("CashDesk"))
+        {
+            GameManager.instance.LevelComplete();
             print("corona");
         }
     }

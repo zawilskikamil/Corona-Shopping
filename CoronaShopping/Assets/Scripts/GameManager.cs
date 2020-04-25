@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         levelImage = GameObject.Find("LevelImage");
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
-        levelText.text = "Game Over";
+        levelText.text = "Level Text";
         levelImage.SetActive(false);
     }
 
@@ -49,7 +49,15 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        levelText.text = "Game Over";
+        levelImage.SetActive(true);
+        enabled = false;
 
+    }
+
+    public void LevelComplete()
+    {
+        levelText.text = "Shoping complete!";
         levelImage.SetActive(true);
         enabled = false;
     }
