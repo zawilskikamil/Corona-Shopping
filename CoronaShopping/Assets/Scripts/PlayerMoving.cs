@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMoving : MovingObject
 {
+
     private Animator animator;
 
     protected override void Start()
@@ -13,6 +14,11 @@ public class PlayerMoving : MovingObject
 
     void Update()
     {
+        if (!GameManager.instance.CanPlayerMove())
+        {
+            print("cant move");
+            return;
+        }
         float x = 0;
         float y = 0;
         string trigger = "";
@@ -57,7 +63,6 @@ public class PlayerMoving : MovingObject
         else if (other.CompareTag("Corona"))
         {
             GameManager.instance.GameOver();
-            print("corona");
         }
         else if (other.CompareTag("CashDesk"))
         {
