@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private bool playersTurn = true;
     private bool canPlayerMove = true;
 
+    private ShopList shopList;
+
     void Awake()
     {
         if (instance == null)

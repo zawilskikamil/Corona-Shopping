@@ -656,6 +656,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &814106704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8392957161118762222, guid: 25e80d04f43d246839a35a8952cdad15,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964538778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &814106705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814106704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387330c18d5014eb88e84167ee79c244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerFoodPoints: 0
+  canvas: {fileID: 1462206554}
+  levelText: {fileID: 1161510097}
+  levelImage: {fileID: 1591834763}
+  infoTextImage: {fileID: 263077778}
 --- !u!1 &1007071862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,6 +2586,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5618939034077040558}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1521657592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521657590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aae6874e3c2e471c9f9fc62869aec8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTime: 0.5
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1554651876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,7 +2613,7 @@ GameObject:
   - component: {fileID: 1554651879}
   - component: {fileID: 1554651878}
   - component: {fileID: 1554651877}
-  - component: {fileID: 1554651881}
+  - component: {fileID: 1554651880}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2647,7 +2686,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1554651881
+--- !u!114 &1554651880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2656,7 +2695,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554651876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4d32b461b584dd2a963c03085eb499, type: 3}
+  m_Script: {fileID: 11500000, guid: e5ff5fbac417145d182051bb974d747d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1521657590}
@@ -7018,7 +7057,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8392957161118762216, guid: 25e80d04f43d246839a35a8952cdad15, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 25e80d04f43d246839a35a8952cdad15, type: 3}
 --- !u!4 &1992471599 stripped
 Transform:
@@ -7124,7 +7164,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5618939032891271506, guid: 87531367238e444c9823f16f280fcd89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87531367238e444c9823f16f280fcd89, type: 3}
 --- !u!1001 &6847316734424681998
 PrefabInstance:
