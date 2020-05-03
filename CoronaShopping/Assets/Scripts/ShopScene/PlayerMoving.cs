@@ -4,11 +4,8 @@ using UnityEngine.SceneManagement;
 public class PlayerMoving : MovingObject
 {
 
-    private Animator animator;
-
     protected override void Start()
     {
-        animator = GetComponent<Animator>();
         base.Start();
     }
 
@@ -16,7 +13,6 @@ public class PlayerMoving : MovingObject
     {
         if (!GameManager.instance.CanPlayerMove())
         {
-            print("cant move");
             return;
         }
         

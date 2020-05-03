@@ -9,7 +9,7 @@ public abstract class MovingObject : MonoBehaviour
     private Rigidbody2D rb2D;               
     private float inverseMoveTime;            
     protected bool isMoving = false;
-    private Animator animator;
+    protected Animator animator;
 
     protected virtual void Start()
     {
