@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerAnimation
+  m_Name: NpcAnimation
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 0d824b0df4f454b5e896e7be16b0177b, type: 3}
+      value: {fileID: 21300000, guid: a67955afcaf5a4ba9a35c1aeadb8be36, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: fbe808f89d1ea44ba982db9335a561e9, type: 3}
+      value: {fileID: 21300000, guid: 8574da1debe6f469292cc594b1885d78, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 7f29caf845c4540c9ba4283fe626939e, type: 3}
+      value: {fileID: 21300000, guid: bbc1f86f6cad846888137ecc59fc9749, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 0d824b0df4f454b5e896e7be16b0177b, type: 3}
-    - {fileID: 21300000, guid: fbe808f89d1ea44ba982db9335a561e9, type: 3}
-    - {fileID: 21300000, guid: 7f29caf845c4540c9ba4283fe626939e, type: 3}
+    - {fileID: 21300000, guid: a67955afcaf5a4ba9a35c1aeadb8be36, type: 3}
+    - {fileID: 21300000, guid: 8574da1debe6f469292cc594b1885d78, type: 3}
+    - {fileID: 21300000, guid: bbc1f86f6cad846888137ecc59fc9749, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -71,11 +71,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: 
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

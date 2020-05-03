@@ -20,7 +20,7 @@ public class BoardManager : MonoBehaviour
     public void SetupScene(int level)
     {
         InitialiseList();
-        LayoutObjectAtRandom(itemTiles, 1, 20);
+        LayoutObjectAtRandom(itemTiles, 1, 2);
     }
 
     void InitialiseList()
@@ -35,10 +35,16 @@ public class BoardManager : MonoBehaviour
                 if (currentFloorTile != null)
                 {
                     TileBase currentWallTile = wallTilemap.GetTile(new Vector3Int(row, col, 0));
-                    if (currentWallTile == null)
+                    if (currentWallTile != null)
                     {
-                        gridPositions.Add(new Vector3(row, col, 0f));
+                        continue;
                     }
+                    Collider2D hitColliders = Physics2D.OverlapCircle(new Vector2(row, col), 0);
+                    if (hitColliders != null)
+                    {
+                        continue;
+                    }
+                    gridPositions.Add(new Vector3(row, col, 0f));
                 }
             }
         }
@@ -55,13 +61,10 @@ public class BoardManager : MonoBehaviour
     void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
     {
         int objectCount = Random.Range(minimum, maximum + 1);
-        print(objectCount);
         for (int i = 0; i < objectCount; i++)
         {
             Vector3 randomPosition = RandomPosition();
             GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
-            print(tileChoice);
-
             Instantiate(tileChoice, randomPosition, Quaternion.identity);
         }
     }
