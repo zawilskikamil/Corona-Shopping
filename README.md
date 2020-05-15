@@ -1,3 +1,5 @@
 # Corona-Shopping
 
-![](media/coronaShoping.gif)
+Pixel based game made in Unity about shopping during corona pandemic.
+
+![](media/coronaShopping.gif)
