@@ -78,10 +78,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator BackToMainMenu()
     {
         yield return new WaitForSeconds(1);
-
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-
-        
     }
 
     public void LevelComplete()
@@ -96,7 +93,6 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(ShowInfoText());
         }
-        
     }
 
 

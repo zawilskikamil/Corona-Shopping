@@ -47,6 +47,7 @@ public abstract class MovingObject : MonoBehaviour
         bool moving = Move(x, y);
         if (moving)
         {
+            print(trigger);
             animator.SetTrigger(trigger);
         }
         return moving;

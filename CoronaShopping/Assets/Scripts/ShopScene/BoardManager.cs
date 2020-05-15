@@ -9,6 +9,8 @@ public class BoardManager : MonoBehaviour
     public Tilemap wallTilemap;
 
     public GameObject[] itemTiles;
+    public int minItem = 3;
+    public int maxItem = 10;
 
     private List<Vector3> gridPositions = new List<Vector3>();
 
@@ -20,7 +22,7 @@ public class BoardManager : MonoBehaviour
     public void SetupScene(int level)
     {
         InitialiseList();
-        LayoutObjectAtRandom(itemTiles, 1, 2);
+        LayoutObjectAtRandom(itemTiles, minItem, maxItem);
     }
 
     void InitialiseList()
