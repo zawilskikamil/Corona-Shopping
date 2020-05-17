@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int playerFoodPoints = 0;
+    public int playerSelectedItems = 0;
     public static GameManager instance = null;
     public Canvas canvas;
 
     public Text levelText;
     public GameObject levelImage;
     public GameObject infoTextImage;
+    public Text infoText;
 
     private int level = 1;
     private bool playersTurn = true;
@@ -27,28 +27,8 @@ public class GameManager : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
-        print(instance.playersTurn);
 
-        instance.ReasignVarible();
         instance.InitGame();
-    }
-
-    void ReasignVarible()
-    {
-        if (levelImage == null)
-        {
-            levelImage = GameObject.Find("LevelImage");
-        }
-        if (infoTextImage == null)
-        {
-            infoTextImage = GameObject.Find("InfoTextImage");
-        }
-
-        if (levelText == null)
-        {
-            levelText = GameObject.Find("LevelText").GetComponent<Text>();
-        }
     }
 
     void InitGame()
@@ -72,6 +52,7 @@ public class GameManager : MonoBehaviour
         levelImage.SetActive(true);
         canPlayerMove = false;
         enabled = false;
+        MainManager.instance.SayHello();
         StartCoroutine(BackToMainMenu());
     }
 
@@ -83,11 +64,13 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete()
     {
-        if (false)
+        if (playerSelectedItems >= PointsManager.instance.currentLevel)
         {
             levelText.text = "Shoping complete!";
             levelImage.SetActive(true);
             enabled = false;
+            PointsManager.instance.LevelUp();
+            Invoke("Restart", 1);
         }
         else
         {
@@ -99,6 +82,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShowInfoText()
     {
         infoTextImage.SetActive(true);
+        infoText.text = (PointsManager.instance.currentLevel - playerSelectedItems).ToString() + "items left :<"; 
         yield return new WaitForSeconds(1);
         infoTextImage.SetActive(false);
     }
@@ -106,5 +90,10 @@ public class GameManager : MonoBehaviour
     public bool CanPlayerMove()
     {
         return canPlayerMove;
+    }
+
+    private void Restart()
+    {
+        SceneManager.LoadScene("Shop", LoadSceneMode.Single);
     }
 }

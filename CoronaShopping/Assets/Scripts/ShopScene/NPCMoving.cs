@@ -7,8 +7,6 @@ using UnityEngine.Tilemaps;
 public class NPCMoving : MovingObject
 {
     public GameObject[] viruses;
-    public Grid grid;
-    public Tilemap floorTilemap;
 
     private bool canMove = true; 
 
@@ -23,19 +21,26 @@ public class NPCMoving : MovingObject
         {
             return;
         }
-        int randomIndex = UnityEngine.Random.Range(0, 4);
-        if (randomIndex == 0)
+        int randomIndex = UnityEngine.Random.Range(0, 5);
+        switch (randomIndex)
         {
-            Move(Direction.LEFT);
+            case 0:
+                Move(Direction.DOWN);
+                break;
+            case 1:
+                Move(Direction.UP);
+                break;
+            case 2:
+                Move(Direction.LEFT);
+                break;
+            case 3:
+                Move(Direction.RIGHT);
+                break;
+            case 4:
+                Cough();
+                break;
         }
-        if (randomIndex == 1)
-        {
-            Move(Direction.RIGHT);
-        }
-        if (randomIndex == 2)
-        {
-            Cough();
-        }
+       
         canMove = false;
         StartCoroutine(ToggleCanMove());
     }
@@ -55,15 +60,8 @@ public class NPCMoving : MovingObject
     protected IEnumerator CreateVirus()
     {
         yield return new WaitForSeconds(0.5f);
-        Vector3 currentPosition = GetCurrentPosition();
+        Vector3 currentPosition = BoardManager.instance.GetPositionOf(this);
         GameObject virus = viruses[Random.Range(0, viruses.Length)];
         Instantiate(virus, currentPosition, Quaternion.identity);
-    }
-
-    private Vector3 GetCurrentPosition()
-    {
-        Vector3Int lPos = grid.WorldToCell(transform.position);
-        Debug.Log("name : " + floorTilemap.GetTile(lPos).name + " & position : " + lPos);
-        return lPos;
     }
 }

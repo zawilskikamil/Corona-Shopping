@@ -38,7 +38,7 @@ public class PlayerMoving : MovingObject
     {
         if (other.CompareTag("ShopItem"))
         {
-            GameManager.instance.playerFoodPoints++;
+            GameManager.instance.playerSelectedItems++;
             other.gameObject.SetActive(false);
         }
         else if (other.CompareTag("Corona"))
@@ -48,7 +48,6 @@ public class PlayerMoving : MovingObject
         else if (other.CompareTag("CashDesk"))
         {
             GameManager.instance.LevelComplete();
-            print("corona");
         }
     }
 }

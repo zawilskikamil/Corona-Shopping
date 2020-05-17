@@ -2,27 +2,41 @@
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 using UnityEngine.Tilemaps;
+using System;
 
 public class BoardManager : MonoBehaviour
 {
+    public static BoardManager instance = null;
+
     public Tilemap floorTilemap;
     public Tilemap wallTilemap;
+    public Grid grid;
 
     public GameObject[] itemTiles;
-    public int minItem = 3;
-    public int maxItem = 10;
+    public int minItem = 1;
+    public int maxItem = 2;
 
-    private List<Vector3> gridPositions = new List<Vector3>();
+    public GameObject[] npc;
+    public int minNpc = 1;
+    public int maxNpc = 2;
+
+    private readonly List<Vector3> gridPositions = new List<Vector3>();
 
     private void Start()
     {
-        SetupScene(1);
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        SetupScene(PointsManager.instance.currentLevel);
     }
 
     public void SetupScene(int level)
     {
         InitialiseList();
-        LayoutObjectAtRandom(itemTiles, minItem, maxItem);
+        LayoutObjectAtRandom(itemTiles, minItem * level, maxItem * level);
+        LayoutObjectAtRandom(npc, minNpc * level, maxNpc * level);
     }
 
     void InitialiseList()
@@ -50,6 +64,12 @@ public class BoardManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    internal Vector3 GetPositionOf(MovingObject movingObject)
+    {
+        Vector3Int lPos = grid.WorldToCell(movingObject.transform.position);
+        return lPos;
     }
 
     Vector3 RandomPosition()
