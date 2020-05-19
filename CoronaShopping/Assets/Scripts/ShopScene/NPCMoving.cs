@@ -7,6 +7,8 @@ using UnityEngine.Tilemaps;
 public class NPCMoving : MovingObject
 {
     public GameObject[] viruses;
+    public AudioClip coughSound;
+    public AudioClip coughSound2;
 
     private bool canMove = true; 
 
@@ -48,6 +50,7 @@ public class NPCMoving : MovingObject
     private void Cough()
     {
         animator.SetTrigger("Cough");
+        SoundManager.instance.RandomizeSfx(coughSound, coughSound2);
         StartCoroutine(CreateVirus());
     }
 

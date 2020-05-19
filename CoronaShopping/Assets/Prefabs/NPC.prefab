@@ -121,6 +121,8 @@ MonoBehaviour:
     m_Bits: 512
   viruses:
   - {fileID: 7780857227579418095, guid: 03e70f36fa888466b8f644eb915a6b03, type: 3}
+  coughSound: {fileID: 8300000, guid: 657b82857c1504cb0aa2f65ea4ff047e, type: 3}
+  coughSound2: {fileID: 8300000, guid: 6159fd8c25be64238a3408af8b9e081a, type: 3}
 --- !u!50 &5528207160561408295
 Rigidbody2D:
   serializedVersion: 4

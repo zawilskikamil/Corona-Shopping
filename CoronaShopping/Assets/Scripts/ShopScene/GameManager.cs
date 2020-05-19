@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
-    public void LevelComplete()
+    public bool LevelComplete()
     {
         if (playerSelectedItems >= PointsManager.instance.currentLevel)
         {
@@ -71,11 +71,13 @@ public class GameManager : MonoBehaviour
             enabled = false;
             PointsManager.instance.LevelUp();
             Invoke("Restart", 1);
+            return true;
         }
         else
         {
             StartCoroutine(ShowInfoText());
         }
+        return false;
     }
 
 
